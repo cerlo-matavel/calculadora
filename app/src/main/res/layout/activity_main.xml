@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_app_categorias"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/calculadoraText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:text="@string/menuPrincipal"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/calculadoraText"
+        app:layout_constraintVertical_bias="0.4"/>
+
+<!--    Falta src para a imagem-->
+    <ImageView
+        android:id="@+id/image_logo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="50dp"
+        android:src="@drawable/app_logo"
+        app:layout_constraintBottom_toBottomOf="@id/view"
+        app:layout_constraintTop_toBottomOf="@+id/calculadoraText" />
+
+    <LinearLayout
+        android:id="@+id/container_categorias"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="15dp"
+        android:paddingTop="15dp"
+        android:background="@drawable/shape_container_categorias"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/view">
+        
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_grafico"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    app:cardBackgroundColor="@color/grafico"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingHorizontal="20dp"
+                        android:text="@string/grafico"
+                        android:textSize="22dp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+<!--                    Falta sorce para a imagem-->
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:src="@drawable/grafico"
+                        android:layout_gravity="end"/>
+                </androidx.cardview.widget.CardView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20px"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_calculadora"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    app:cardBackgroundColor="@color/calculadora"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingHorizontal="20dp"
+                        android:text="@string/calculadora"
+                        android:textSize="22dp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+<!--                    Falta sorce para a imagem-->
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:src="@drawable/calculadora"
+                        android:layout_gravity="end"/>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+            
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+    
+</androidx.constraintlayout.widget.ConstraintLayout>
