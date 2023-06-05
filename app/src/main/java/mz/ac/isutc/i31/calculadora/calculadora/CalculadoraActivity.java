@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.mariuszgromada.math.mxparser.*;
+
 import mz.ac.isutc.i31.calculadora.R;
 import mz.ac.isutc.i31.calculadora.databinding.ActivityCalculadoraBinding;
 
@@ -108,6 +110,17 @@ public class CalculadoraActivity extends AppCompatActivity {
     }
     public void equalBTNPush(View view){
         //updateText(getResources().getString(R.string.equalsText));
+        String userExp = binding.displayEditText.getText().toString();
+
+        userExp = userExp.replaceAll(getResources().getString(R.string.divideText),"/");
+        userExp = userExp.replaceAll(getResources().getString(R.string.divideText),"*");
+
+
+        Expression exp = new Expression(userExp);
+        String result = String.valueOf(exp.calculate());
+
+        binding.displayEditText.setText(result);
+        binding.displayEditText.setSelection(result.length());
     }
     public void backspaceBTNPush(View view){
         //updateText(getResources().getString(R.string.backspace));
