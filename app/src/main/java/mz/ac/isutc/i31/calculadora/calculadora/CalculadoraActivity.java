@@ -1,25 +1,16 @@
 package mz.ac.isutc.i31.calculadora.calculadora;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import org.mariuszgromada.math.mxparser.*;
-
+import androidx.appcompat.app.AppCompatActivity;
 import mz.ac.isutc.i31.calculadora.R;
+import mz.ac.isutc.i31.calculadora.controller.Controller;
 import mz.ac.isutc.i31.calculadora.databinding.ActivityCalculadoraBinding;
 
 public class CalculadoraActivity extends AppCompatActivity {
 
-    private TextView previousCalculation;
-
-    private EditText display;
     private ActivityCalculadoraBinding binding;
     private static boolean landscape;
     @Override
@@ -45,16 +36,8 @@ public class CalculadoraActivity extends AppCompatActivity {
         );
 
     }
-    private void  updateText(String strToAdd){
-        String oldStr = binding.displayEditText.getText().toString();
-
-        int cursorPos = binding.displayEditText.getSelectionStart();
-        String leftStr = oldStr.substring(0, cursorPos);
-        String rightStr = oldStr.substring(cursorPos);
-
-        binding.displayEditText.setText(String.format("%s%s%s", leftStr, strToAdd, rightStr));
-        binding.displayEditText.setSelection(cursorPos + strToAdd.length());
-       // binding.displayEditText.setText(strToAdd);
+    private void updateText(String strToAdd){
+        Controller.changeText(strToAdd,binding.displayEditText);
     }
     public void zeroBTNPush(View view){
         updateText(getResources().getString(R.string.zeroText));
@@ -99,8 +82,9 @@ public class CalculadoraActivity extends AppCompatActivity {
         updateText(getResources().getString(R.string.addText));
     }
     public void clearBTNPush(View view){
-        //updateText(getResources().getString(R.string.clearText));
        binding.displayEditText.setText("");
+
+       //binding.previousCalculationTV.setText("");
     }
     public void parOpenBTNPush(View view){
         updateText(getResources().getString(R.string.parenthesesOpenText));
@@ -109,21 +93,24 @@ public class CalculadoraActivity extends AppCompatActivity {
         updateText(getResources().getString(R.string.parenthesesCloseText));
     }
     public void equalBTNPush(View view){
-        //updateText(getResources().getString(R.string.equalsText));
-        String userExp = binding.displayEditText.getText().toString();
+        String expressao = binding.displayEditText.getText().toString();
+        String previous = ""+expressao;
 
-        userExp = userExp.replaceAll(getResources().getString(R.string.divideText),"/");
-        userExp = userExp.replaceAll(getResources().getString(R.string.divideText),"*");
+        expressao = expressao.replaceAll(getResources().getString(R.string.divideText),"/");
+        expressao = expressao.replaceAll(getResources().getString(R.string.multiplyText),"*");
+        expressao = expressao.replaceAll(getResources().getString(R.string.piText),"pi");
 
-
-        Expression exp = new Expression(userExp);
-        String result = String.valueOf(exp.calculate());
+        String result = String.valueOf(Controller.calculate(expressao));
 
         binding.displayEditText.setText(result);
         binding.displayEditText.setSelection(result.length());
+
+        if (binding.previousCalculationTV != null){
+            binding.previousCalculationTV.setText(previous);
+        }
+
     }
     public void backspaceBTNPush(View view){
-        //updateText(getResources().getString(R.string.backspace));
         int cursorPos = binding.displayEditText.getSelectionStart();
         int textLen = binding.displayEditText.getText().length();
 
@@ -138,4 +125,63 @@ public class CalculadoraActivity extends AppCompatActivity {
         updateText(getResources().getString(R.string.decimalText));
     }
 
+    //Trigonometrica
+    public void trigSinBTNPush(View view){
+        updateText("sin(");
+    }
+
+    public void triCosBTNPush(View view){
+        updateText("cos(");
+    }
+
+    public void trigTanBTNPush(View view){
+        updateText("tan(");
+    }
+
+    public void trigArcSinBTNPush(View view){
+        updateText("arcsin(");
+    }
+
+    public void trigArcCosBTNPush(View view){
+        updateText("arccos(");
+    }
+
+    public void trigArcTanBTNPush(View view){
+        updateText("arctan");
+    }
+
+    public void logBTNPush(View view){
+        updateText("log(");
+    }
+
+    public void naturalLogBTNPush(View view){
+        updateText("ln(");
+    }
+
+    public void sqrtBTNPush(View view){
+        updateText("sqrt(");
+    }
+
+    public void eBTNPush(View view){
+        updateText("e");
+    }
+    public void piBTNPush(View view){
+        updateText(getResources().getString(R.string.piText));
+    }
+
+    public void absBTNPush(View view){
+        updateText("abs");
+    }
+
+    public void xPowerYBTNPush(View view){
+        updateText("^(");
+    }
+
+    public void derivativeBTNPush(View view){
+        //updateText();
+    }
+
+    public void integralBTNPush(View view){
+        //updateText();
+    }
 }

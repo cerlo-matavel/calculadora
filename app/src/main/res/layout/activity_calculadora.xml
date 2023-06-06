@@ -12,11 +12,12 @@
         android:id="@+id/previousCalculationTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="800+8"
+        android:layout_marginEnd="16dp"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/displayEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.495" />
 
     <EditText
         android:id="@+id/displayEditText"
@@ -29,7 +30,7 @@
         android:textSize="48sp"
         android:textAlignment="viewEnd"
         android:inputType="textPersonName"
-        android:hint="=808"
+        android:hint="@string/displyHint"
         android:importantForAutofill="no"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,6 +65,7 @@
             android:layout_height="45dp"
             android:background="@drawable/button_background"
             android:contentDescription="@string/backspace"
+            android:onClick="backspaceBTNPush"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/button5"
             app:layout_constraintStart_toStartOf="@+id/button5"

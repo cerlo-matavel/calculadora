@@ -7,6 +7,7 @@
 
     <!--    Strings relacionadas a calculadora-->
     <string name="displyHint">Introduza valor</string>
+    <string name="functionDispalyHint">Introduza a função</string>
     <string name="oneText">1</string>
     <string name="twoText">2</string>
     <string name="threeText">3</string>
