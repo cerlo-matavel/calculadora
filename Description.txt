@@ -1,0 +1,5 @@
+Instrucoes de atualizacoes:
+
+tirei aquele problema, na verdade excepcao de dividir por zero;
+organizei um pouco melhor o codigo ;
+criei a classe e o botao para aquele grafico de ordenadas e abcisas;
