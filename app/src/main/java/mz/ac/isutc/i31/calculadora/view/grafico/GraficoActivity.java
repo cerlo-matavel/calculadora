@@ -28,6 +28,7 @@ public class GraficoActivity extends AppCompatActivity {
     binding.showGraph.setOnClickListener(
             v -> {
                 Intent intent = new Intent(GraficoActivity.this, TabelaGraficoActivity.class);
+                intent.putExtra("funcao", binding.displayEditText.getText().toString());
                 startActivity(intent);
             }
         );

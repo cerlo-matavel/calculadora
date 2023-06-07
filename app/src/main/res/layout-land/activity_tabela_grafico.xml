@@ -36,7 +36,7 @@
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
                     android:padding="10sp"
-                    android:text="@string/functionRep"
+                    android:text="@string/function"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
             </TableRow>
@@ -246,6 +246,17 @@
             app:title="@string/functionRep">
 
         </com.androidplot.xy.XYPlot>
+
+        <!--<com.jjoe64.graphview.GraphView
+            android:id="@+id/grafico"
+            style="@style/APDefacto.Light"
+            android:layout_width="550dp"
+            android:layout_height="match_parent"
+            app:title="@string/functionRep">
+
+        </com.jjoe64.graphview.GraphView>-->
+
+
 
     </LinearLayout>
 
