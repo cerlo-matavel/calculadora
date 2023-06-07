@@ -1,13 +1,12 @@
 package mz.ac.isutc.i31.calculadora.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
-import mz.ac.isutc.i31.calculadora.view.calculadora.CalculadoraActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import mz.ac.isutc.i31.calculadora.databinding.ActivityMainBinding;
+import mz.ac.isutc.i31.calculadora.view.calculadora.CalculadoraActivity;
 import mz.ac.isutc.i31.calculadora.view.grafico.GraficoActivity;
 
 public class MainActivity extends AppCompatActivity {
