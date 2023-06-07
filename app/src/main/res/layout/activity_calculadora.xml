@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/app_background"
-    tools:context=".calculadora.CalculadoraActivity">
+    tools:context=".view.calculadora.CalculadoraActivity">
 
 
     <TextView
@@ -53,6 +53,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/equals_button_background"
             android:text="@string/previous"
+            android:onClick="previousBTNPush"
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/button2"

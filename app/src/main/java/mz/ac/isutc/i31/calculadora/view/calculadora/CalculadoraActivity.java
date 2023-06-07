@@ -1,17 +1,27 @@
-package mz.ac.isutc.i31.calculadora.calculadora;
+package mz.ac.isutc.i31.calculadora.view.calculadora;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.view.View;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.File;
+import java.util.List;
+
 import mz.ac.isutc.i31.calculadora.R;
 import mz.ac.isutc.i31.calculadora.controller.Controller;
 import mz.ac.isutc.i31.calculadora.databinding.ActivityCalculadoraBinding;
+import mz.ac.isutc.i31.calculadora.model.DBManager;
+import mz.ac.isutc.i31.calculadora.view.FragmentDialogBox;
 
-public class CalculadoraActivity extends AppCompatActivity {
+public class CalculadoraActivity extends AppCompatActivity implements FragmentDialogBox.AlertDialogListener{
 
     private ActivityCalculadoraBinding binding;
+    private final String FILENAME = "previous-operations-calc.csv";
+    File arquive;
     private static boolean landscape;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +29,8 @@ public class CalculadoraActivity extends AppCompatActivity {
         binding = ActivityCalculadoraBinding.inflate(getLayoutInflater());
         landscape = false;
         setContentView(binding.getRoot());
+
+        arquive = new File(getFilesDir(), FILENAME);
 
         binding.displayEditText.setShowSoftInputOnFocus(false);
 
@@ -84,7 +96,9 @@ public class CalculadoraActivity extends AppCompatActivity {
     public void clearBTNPush(View view){
        binding.displayEditText.setText("");
 
-       //binding.previousCalculationTV.setText("");
+        if(binding.previousCalculationTV != null){
+            binding.previousCalculationTV.setText("");
+        }
     }
     public void parOpenBTNPush(View view){
         updateText(getResources().getString(R.string.parenthesesOpenText));
@@ -109,6 +123,8 @@ public class CalculadoraActivity extends AppCompatActivity {
             binding.previousCalculationTV.setText(previous);
         }
 
+        //Adicionar no armazenamento interno
+        DBManager.save(arquive, previous);
     }
     public void backspaceBTNPush(View view){
         int cursorPos = binding.displayEditText.getSelectionStart();
@@ -183,5 +199,24 @@ public class CalculadoraActivity extends AppCompatActivity {
 
     public void integralBTNPush(View view){
         //updateText();
+    }
+
+    public void previousBTNPush(View view) {
+
+        List<String> array =  DBManager.read(arquive);
+        String[] lista = array.toArray(new String[0]);
+
+        if (!array.isEmpty()){
+            new FragmentDialogBox(lista).show(getSupportFragmentManager(), "fragmentDialog");
+        }else {
+            Toast.makeText(this, "Não existem operações anteriores!", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
+    @Override
+    public void onOptionSelected(int position) {
+        binding.displayEditText.setText(DBManager.read(arquive).get(position));
     }
 }

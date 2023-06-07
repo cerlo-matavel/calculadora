@@ -73,5 +73,6 @@
     <string name="y8">9</string>
     <string name="y9">16</string>
     <string name="functionRep">f(x) = x<sup><small>2</small></sup> </string>
+    <string name="operacoes_anteriores">Operações anteriores</string>
 
 </resources>

@@ -13,33 +13,34 @@
         android:theme="@style/Theme.Calculadora"
         tools:targetApi="31">
         <activity
-            android:name=".grafico.TabelaGraficoActivity"
-            android:screenOrientation="landscape"
+            android:name=".view.grafico.TabelaGraficoActivity"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.calculadora.CalculadoraActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".calculadora.CalculadoraActivity"
-            android:exported="false">
+            android:name=".view.grafico.GraficoActivity"
+            android:exported="false"
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".grafico.GraficoActivity"
-            android:screenOrientation="landscape"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 

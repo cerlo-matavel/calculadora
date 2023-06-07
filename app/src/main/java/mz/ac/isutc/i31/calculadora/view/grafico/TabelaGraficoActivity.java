@@ -1,10 +1,10 @@
-package mz.ac.isutc.i31.calculadora.grafico;
-
-import androidx.appcompat.app.AppCompatActivity;
+package mz.ac.isutc.i31.calculadora.view.grafico;
 
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.androidplot.xy.LineAndPointFormatter;
 import com.androidplot.xy.SimpleXYSeries;
@@ -16,7 +16,6 @@ import java.text.FieldPosition;
 import java.text.Format;
 import java.text.ParsePosition;
 import java.util.Arrays;
-import java.util.List;
 
 import mz.ac.isutc.i31.calculadora.databinding.ActivityTabelaGraficoBinding;
 
@@ -24,7 +23,7 @@ public class TabelaGraficoActivity extends AppCompatActivity {
 
     private XYPlot plot;
 
-    private static ActivityTabelaGraficoBinding binding;
+    private ActivityTabelaGraficoBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

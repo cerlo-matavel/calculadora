@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/shape_app_categorias"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <TextView
         android:id="@+id/calculadoraText"
@@ -15,7 +15,7 @@
         android:layout_marginTop="15dp"
         android:text="@string/menuPrincipal"
         android:textColor="@color/white"
-        android:textSize="35dp"
+        android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,7 +73,7 @@
                         android:layout_gravity="center"
                         android:paddingHorizontal="20dp"
                         android:text="@string/grafico"
-                        android:textSize="22dp"
+                        android:textSize="22sp"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
 
@@ -88,7 +88,7 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="20px"/>
+                    android:layout_height="10dp"/>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_calculadora"
@@ -106,7 +106,7 @@
                         android:layout_gravity="center"
                         android:paddingHorizontal="20dp"
                         android:text="@string/calculadora"
-                        android:textSize="22dp"
+                        android:textSize="22sp"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
 

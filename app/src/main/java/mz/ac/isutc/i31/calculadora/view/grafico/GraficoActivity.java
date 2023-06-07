@@ -1,4 +1,4 @@
-package mz.ac.isutc.i31.calculadora.grafico;
+package mz.ac.isutc.i31.calculadora.view.grafico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
